@@ -50,7 +50,7 @@ export const ImageFadeMaterial = shaderMaterial(
       vec4 finalTexture = mix(_texture, _texture2, dispFactor);
       gl_FragColor = finalTexture;
       #include <tonemapping_fragment>
-      #include <encodings_fragment>
+      #include <colorspace_fragment>
     }`
 )
 
@@ -172,20 +172,20 @@ export default function Component(props) {
     });
   }, []);
 
-  useEffect(() => {
-    // gsap.set('.work-image', {yPercent:100});
-    // gsap.to(".work-image", {
-    //   yPercent:-100,
-    //   stagger: 2,
-    //   duration: 1,
-    //   scrollTrigger: {
-    //     trigger: ".work-section",
-    //     start: "top 0%",
-    //     end: "+=90%",
-    //     scrub: true,
-    //     markers: true,
-    //   }
-    // })
+  {/*useEffect(() => {
+    gsap.set('.work-image', {yPercent:100});
+    gsap.to(".work-image", {
+      yPercent:-100,
+      stagger: 2,
+      duration: 1,
+      scrollTrigger: {
+        trigger: ".work-section",
+        start: "top 0%",
+        end: "+=90%",
+        scrub: true,
+        markers: true,
+      }
+    })
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -198,7 +198,7 @@ export default function Component(props) {
       y: -800,
       scrub: true
     })
-  }, []);
+  }, []);*/}
 
 
   useEffect(() => {
