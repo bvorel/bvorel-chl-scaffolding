@@ -174,7 +174,7 @@ export default function Component(props) {
     });
   }, []);*/}
 
-  {/*useEffect(() => {
+  useEffect(() => {
     gsap.set('.work-image', {yPercent:100});
     gsap.to(".work-image", {
       yPercent:-100,
@@ -200,7 +200,7 @@ export default function Component(props) {
       y: -800,
       scrub: true
     })
-  }, []);*/}
+  }, []);
 
 
   useIsomorphicLayoutEffect(() => {
@@ -390,7 +390,7 @@ export default function Component(props) {
           </div>
         </div>
       </section>
-      {/*<section className="work-section flex items-center justify-center bg-click-here-dark">
+      <section className="work-section flex items-center justify-center bg-click-here-dark">
         <div className="">
           <div className="min-h-screen h-screen headline text-white text-center text-[16vw] whitespace-nowrap px-0 lg:block lg:sticky top-1/3">Our Work</div>
           <div className="container">
@@ -411,7 +411,7 @@ export default function Component(props) {
             </div>
           </div>
         </div>
-      </section>*/}
+      </section>
       {/*<div id="orangeDiv" className="fixed top-0 left-0 bottom-0 right-0 h-screen bg-click-here-dark -z-50"></div>*/}
 
       <Footer />
