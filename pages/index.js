@@ -5,10 +5,6 @@ import { getWordPressProps, WordPressTemplate } from '@faustwp/core';
 import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
 import { ThemeProvider } from "next-themes"
 
-import { gsap } from 'gsap/dist/gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Page(props) {
   const lenis = useLenis(({ scroll }) => {
     // called every scroll
