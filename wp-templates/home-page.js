@@ -1,3 +1,4 @@
+import { useEffect, useState, useRef } from 'react';
 import { gql } from "@apollo/client";
 import Image from 'next/image';
 import Head from "next/head";
@@ -13,12 +14,12 @@ import { useTexture, shaderMaterial } from "@react-three/drei"
 
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect, useState, useRef } from 'react';
+// gsap.registerPlugin(ScrollTrigger);
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 export const ImageFadeMaterial = shaderMaterial(
   {
@@ -202,28 +203,30 @@ export default function Component(props) {
 
 
   useEffect(() => {
-    const tl = gsap.fromTo(
-      "#Banner",
-      { x: 0 },
-      {
-        duration: 1,
-        ease: "linear",
-        x: '-50%',
-        scrollTrigger: {
-          trigger: "#Banner",
-          start: "top 100%",
-          end: "bottom top",
-          scrub: 3,
-          markers: false,
-          onUpdate: ({ progress }) => {
-            // console.log(progress);
+    bannerRef.current.forEach((el, index) => {
+      const tl = gsap.fromTo(
+        el,
+        { x: 0 },
+        {
+          duration: 1,
+          ease: "linear",
+          x: '-50%',
+          scrollTrigger: {
+            trigger: el,
+            start: "top 100%",
+            end: "bottom top",
+            scrub: 3,
+            markers: false,
+            onUpdate: ({ progress }) => {
+              // console.log(progress);
+            }
           }
         }
-      }
-    )
-    return () => {
-      tl.kill();
-    };
+      )
+      return () => {
+        tl.kill();
+      };
+    });
   }, []);
 
 
@@ -245,7 +248,7 @@ export default function Component(props) {
         </div>
       </section>
       <section id="textBanner" className="text-banner py-5 bg-click-here-teal">
-        <div id="Banner" className="flex flex-nowrap whitespace-nowrap">
+        <div ref={addToBannerRefs} className="flex flex-nowrap whitespace-nowrap">
           <p>Full-service digital agency</p>
           <p>All in-house disciplines</p>
           <p>local and national work</p>
