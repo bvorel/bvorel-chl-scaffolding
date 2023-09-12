@@ -18,7 +18,7 @@ import { useEffect, useState, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
+gsap.registerPlugin(ScrollTrigger);
 
 export const ImageFadeMaterial = shaderMaterial(
   {
@@ -202,32 +202,28 @@ export default function Component(props) {
 
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    bannerRef.current.forEach((el, index) => {
-      const tl = gsap.fromTo(
-        el,
-        { x: 0 },
-        {
-          duration: 1,
-          ease: "linear",
-          x: '-50%',
-          scrollTrigger: {
-            trigger: el,
-            start: "top 100%",
-            end: "bottom top",
-            scrub: 3,
-            markers: false,
-            onUpdate: ({ progress }) => {
-              // console.log(progress);
-            }
+    const tl = gsap.fromTo(
+      "#Banner",
+      { x: 0 },
+      {
+        duration: 1,
+        ease: "linear",
+        x: '-50%',
+        scrollTrigger: {
+          trigger: "#Banner",
+          start: "top 100%",
+          end: "bottom top",
+          scrub: 3,
+          markers: false,
+          onUpdate: ({ progress }) => {
+            // console.log(progress);
           }
         }
-      )
-      return () => {
-        tl.kill();
-      };
-    });
+      }
+    )
+    return () => {
+      tl.kill();
+    };
   }, []);
 
 
@@ -249,7 +245,7 @@ export default function Component(props) {
         </div>
       </section>
       <section id="textBanner" className="text-banner py-5 bg-click-here-teal">
-        <div ref={addToBannerRefs} className="flex flex-nowrap whitespace-nowrap">
+        <div id="Banner" className="flex flex-nowrap whitespace-nowrap">
           <p>Full-service digital agency</p>
           <p>All in-house disciplines</p>
           <p>local and national work</p>
