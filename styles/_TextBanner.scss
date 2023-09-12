@@ -1,0 +1,17 @@
+.text-banner {
+  p {
+    color: #030A16;
+    font-family: pill-gothic-300mg, sans-serif;
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.23px;
+    text-transform: uppercase;
+    &:before {
+      content: '/';
+      margin: 0 40px;
+      color: #fff;
+    }
+  }
+}

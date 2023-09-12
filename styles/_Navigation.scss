@@ -1,0 +1,15 @@
+#navigation {
+  nav {
+    .link {
+      color: rgba(255, 255, 255, 0.80);
+      font-family: pill-gothic-300mg, sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

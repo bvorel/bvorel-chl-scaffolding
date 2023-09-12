@@ -1,9 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '../node_modules/locomotive-scroll/dist/locomotive-scroll';
+
 html,
 body {
+  background-color: #030A16;
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+}
+
+@layer base{
+    body {
+        /* @apply dark:bg-gray-900 bg-white; */
+    }
 }
 
 a {
@@ -23,7 +36,16 @@ a {
 
 .container {
   width: 100%;
-  max-width: 60rem;
+  max-width: 75rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-top: 2px solid #2FC2B3;
+  color: $chl-teal;
+  text-align: center;
+  height: 2px;
 }

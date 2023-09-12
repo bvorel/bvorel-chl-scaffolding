@@ -1,0 +1,38 @@
+.our-services {
+  .services-headline {
+    color: #F5F5F5;
+    font-family: canada-type-gibson, sans-serif;
+    font-size: 66px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.66px;
+  }
+  p {
+    color: #F5F5F5;
+    font-family: canada-type-gibson, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%; /* 30px */
+    letter-spacing: 0.4px;
+  }
+  .services {
+    li {
+      color: #F5F5F5;
+      font-family: canada-type-gibson, sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 120%;
+      margin-bottom: 20px;
+      &:before {
+        content: "//";
+        color: $chl-teal;
+        margin-right: 10px;
+        font-weight: 700;
+        letter-spacing: -2.2px;
+      }
+    }
+  }
+}

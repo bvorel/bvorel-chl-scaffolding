@@ -1,0 +1,23 @@
+.about-us {
+  h2 {
+    &.thin {
+      color: #FFF;
+      font-family: canada-type-gibson, sans-serif;
+      font-size: 66px;
+      font-style: normal;
+      font-weight: 200;
+      line-height: 100%; /* 66px */
+      letter-spacing: 0.66px;
+    }
+    &.thick {
+      color: #2FC2B3;
+      font-family: pill-gothic-300mg, sans-serif;
+      font-size: 76px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 100%;
+      letter-spacing: -1.52px;
+      text-transform: uppercase;
+    }
+  }
+}

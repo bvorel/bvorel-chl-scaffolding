@@ -11,9 +11,29 @@
     "@apollo/client": "^3.7.7",
     "@faustwp/cli": "^1.0.1",
     "@faustwp/core": "^1.0.3",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-three/drei": "^9.83.3",
+    "@react-three/fiber": "^8.14.1",
+    "@studio-freight/react-lenis": "^0.0.23",
+    "@wordpress/base-styles": "^4.31.0",
+    "@wordpress/block-library": "^8.17.0",
+    "aos": "^3.0.0-beta.6",
     "graphql": "^16.6.0",
+    "gsap": "^3.12.2",
+    "locomotive-scroll": "^5.0.0-beta.8",
     "next": "^13.1.6",
+    "next-themes": "^0.2.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.64.0",
+    "three": "^0.156.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.26",
+    "tailwindcss": "^3.3.3"
   }
 }
