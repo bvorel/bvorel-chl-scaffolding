@@ -205,7 +205,7 @@ export default function Component(props) {
   }, []);*/}
 
 
-  useEffect(() => {
+  {/*useEffect(() => {
     bannerRef.current.forEach((el, index) => {
       const tl = gsap.fromTo(
         el,
@@ -230,9 +230,21 @@ export default function Component(props) {
         tl.kill();
       };
     });
+  }, []);*/}
+
+  useEffect(() => {
+    gsap.set("#Banner", {x: 0});
+    const theBanner = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#Banner",
+        start: "top 100%",
+        end: "bottom top",
+        scrub: 3,
+      }
+    });
+    theBanner.to("#Banner", {duration: 1, ease: "linear", x:'-50%'})
+
   }, []);
-
-
   return (
     <>
       <Head>
@@ -251,7 +263,7 @@ export default function Component(props) {
         </div>
       </section>
       <section id="textBanner" className="text-banner py-5 bg-click-here-teal">
-        <div ref={addToBannerRefs} className="flex flex-nowrap whitespace-nowrap">
+        <div id="Banner" className="flex flex-nowrap whitespace-nowrap">
           <p>Full-service digital agency</p>
           <p>All in-house disciplines</p>
           <p>local and national work</p>
