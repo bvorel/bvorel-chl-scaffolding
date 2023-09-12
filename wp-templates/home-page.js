@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { gql } from "@apollo/client";
 import Image from 'next/image';
 import Head from "next/head";
@@ -204,32 +204,6 @@ export default function Component(props) {
     })
   }, []);*/}
 
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      bannerRef.current.forEach((el, index) => {
-        const tl = gsap.fromTo(
-          el,
-          { x: 0 },
-          {
-            duration: 1,
-            ease: "linear",
-            x: '-50%',
-            scrollTrigger: {
-              trigger: el,
-              start: "top 100%",
-              end: "bottom top",
-              scrub: 3,
-              markers: false,
-              onUpdate: ({ progress }) => {
-                // console.log(progress);
-              }
-            }
-          }
-        )
-      });
-    });
-    return () => ctx.revert(); // <- cleanup!
-  }, []);
 
   useEffect(() => {
     bannerRef.current.forEach((el, index) => {
