@@ -7,6 +7,7 @@ import Header from "../components/header";
 import EntryHeader from "../components/entry-header";
 import Footer from "../components/footer";
 import style from "../styles/front-page.module.css";
+import useIsomorphicLayoutEffect from '../helpers/isomorphicEffect';
 
 import * as THREE from "three"
 import { Canvas, extend, useFrame } from "@react-three/fiber"
@@ -202,7 +203,7 @@ export default function Component(props) {
   }, []);*/}
 
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     bannerRef.current.forEach((el, index) => {
       const tl = gsap.fromTo(
         el,
