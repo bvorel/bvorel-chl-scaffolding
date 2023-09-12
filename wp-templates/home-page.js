@@ -117,7 +117,7 @@ export default function Component(props) {
     AOS.init();
   }, []);
 
-  useEffect(() => {
+  {/*useEffect(() => {
     textRef.current.forEach((el, index) => {
       const tl = gsap.fromTo(
         el,
@@ -143,9 +143,9 @@ export default function Component(props) {
         tl.kill();
       };
     });
-  }, []);
+  }, []);*/}
 
-  useEffect(() => {
+  {/*useEffect(() => {
     imageRef.current.forEach((el, index) => {
       const tl = gsap.fromTo(
         el,
@@ -170,7 +170,7 @@ export default function Component(props) {
         tl.kill();
       };
     });
-  }, []);
+  }, []);*/}
 
   {/*useEffect(() => {
     gsap.set('.work-image', {yPercent:100});
