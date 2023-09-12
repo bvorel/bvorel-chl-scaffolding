@@ -18,7 +18,7 @@ import { useEffect, useState, useRef } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 export const ImageFadeMaterial = shaderMaterial(
   {
@@ -202,6 +202,8 @@ export default function Component(props) {
 
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    
     bannerRef.current.forEach((el, index) => {
       const tl = gsap.fromTo(
         el,
