@@ -6,7 +6,6 @@ const { withFaust, getWpHostname } = require('@faustwp/core');
 module.exports = withFaust({});
 
 const nextConfig = {
-  transpilePackages: ['gsap'],
   reactStrictMode: true,
   distDir: "build",
   images: {
@@ -15,3 +14,7 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
+const withTM = require("next-transpile-modules")(["gsap"]);
+
+module.exports = withTM({});
