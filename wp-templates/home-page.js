@@ -12,8 +12,9 @@ import * as THREE from "three"
 import { Canvas, extend, useFrame } from "@react-three/fiber"
 import { useTexture, shaderMaterial } from "@react-three/drei"
 
-import { gsap } from 'gsap/dist/gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 
 import AOS from 'aos';
