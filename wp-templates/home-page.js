@@ -10,7 +10,8 @@ import style from "../styles/front-page.module.css";
 
 import * as THREE from "three"
 import { Canvas, extend, useFrame } from "@react-three/fiber"
-import { useTexture, shaderMaterial } from "@react-three/drei"
+import { MeshDistortMaterial, useTexture, shaderMaterial } from "@react-three/drei"
+import { easing } from 'maath';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -18,7 +19,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
 
 
 export const ImageFadeMaterial = shaderMaterial(
@@ -70,6 +70,33 @@ function FadingImage() {
     <mesh onPointerOver={(e) => setHover(true)} onPointerOut={(e) => setHover(false)}>
       <planeGeometry args={[16, 9]} />
       <imageFadeMaterial ref={ref} tex={texture1} tex2={texture2} disp={dispTexture} toneMapped={false} />
+    </mesh>
+  )
+}
+
+function ThumbImage({ url, ...props }) {
+  const ref = useRef()
+  const [hovered, hover] = useState(false)
+  const [clicked, click] = useState(false)
+  const texture = useTexture(url)
+
+  useFrame((state, delta) => {
+    easing.damp(ref.current.material, 'distort', hovered ? 0.25 : 0, 0.25, delta)
+    easing.damp(ref.current.material, 'speed', hovered ? 10 : 0, 0.25, delta)
+    easing.dampE(ref.current.rotation, [0, 0, 0], 0.25, delta)
+    easing.damp3(ref.current.scale, 10, 0.25, delta)
+    easing.dampC(ref.current.material.color, 'white', 0.25, delta)
+  })
+
+  return (
+    <mesh
+      ref={ref}
+      onPointerOver={(e) => (e.stopPropagation(), hover(true))}
+      onPointerOut={(e) => (e.stopPropagation(), hover(false))}
+      scale={[2, 4, 1]}
+      {...props}>
+      <planeGeometry args={[16, 9]} />
+      <MeshDistortMaterial map={texture} speed={2} toneMapped={false} />
     </mesh>
   )
 }
@@ -245,6 +272,13 @@ export default function Component(props) {
         menuItems={menuItems}
       />
 
+      {/*<section className="work-section bg-click-here-dark flex min-h-screen h-screen">
+      <Canvas camera={{ position: [0, 0, 50], fov: 100 }}>
+        <ambientLight intensity={1} />
+        <ThumbImage url="/assets/DP_maroon.jpg" position={[0, 0, 0]} />
+      </Canvas>
+      </section>*/}
+
       <section className="hero w-screen min-h-screen h-screen flex items-center justify-start bg-click-here-medium">
         <div className="absolute container">
           <h1 data-aos="fade-up" data-aos-duration="1000" className="text-white text-start uppercase w-11/12 px-10">We Champion Design, Collaboration, and Creativity.</h1>
@@ -340,10 +374,15 @@ export default function Component(props) {
                 <h3 className="text-3xl py-3">Dr Pepper</h3>
               </div>
             </div>
+
             <div className="col-start-5 col-end-13">
               <div className="my-32">
+                <Canvas className="aspect-video" camera={{ position: [0, 0, 40], fov: 100 }}>
+                  <ambientLight intensity={1} />
+                  <ThumbImage url="/assets/DP_maroon.jpg" position={[-2, 0, 0]} />
+                </Canvas>
                 <div className="h-min overflow-hidden rounded-[1rem] mb-4 relative group">
-                  <img className="group-hover:scale-105 transition-all duration-700 cursor-pointer grayscale group-hover:grayscale-0" src="https://cms.clickherelabs.com/wp-content/uploads/2020/01/Choctaw_dark.jpg" alt="" />
+                  {/*<img className="group-hover:scale-105 transition-all duration-700 cursor-pointer grayscale group-hover:grayscale-0" src="https://cms.clickherelabs.com/wp-content/uploads/2020/01/Choctaw_dark.jpg" alt="" />*/}
                   <a href="#" className="absolute bottom-0 left-0 m-4 opacity-0 group-hover:opacity-100 ch-btn block hover:bg-click-here-teal ease-in-out duration-700">
                     See Case Study &nbsp; →
                   </a>
