@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import { gql } from "@apollo/client";
-import Image from 'next/image';
+// import Image from 'next/image';
 import Head from "next/head";
 import Link from "next/link";
 import Header from "../components/header";
@@ -9,8 +9,8 @@ import Footer from "../components/footer";
 import style from "../styles/front-page.module.css";
 
 import * as THREE from "three"
-import { Canvas, extend, useFrame } from "@react-three/fiber"
-import { MeshDistortMaterial, useTexture, shaderMaterial } from "@react-three/drei"
+import { Canvas, extend, useFrame, useThree } from "@react-three/fiber"
+import { MeshDistortMaterial, useTexture, shaderMaterial, GradientTexture, useCursor  } from "@react-three/drei"
 import { easing } from 'maath';
 
 import { gsap } from 'gsap';
@@ -82,10 +82,12 @@ function ThumbImage({ url, ...props }) {
 
   useFrame((state, delta) => {
     easing.damp(ref.current.material, 'distort', hovered ? 0.25 : 0, 0.25, delta)
-    easing.damp(ref.current.material, 'speed', hovered ? 10 : 0, 0.25, delta)
+    easing.damp(ref.current.material, 'speed', hovered ? 4 : 0, 0.25, delta)
+    // easing.damp(ref.current.material.grayscale, hovered ? 1 : 0, 4, delta)
     easing.dampE(ref.current.rotation, [0, 0, 0], 0.25, delta)
     easing.damp3(ref.current.scale, 10, 0.25, delta)
-    easing.dampC(ref.current.material.color, 'white', 0.25, delta)
+    //easing.dampC(ref.current.material.color, hovered ? '#ef2060' : 'white', 1, delta)
+    // ref.current.material.grayscale = THREE.MathUtils.damp(ref.current.material.grayscale, hovered ? 1 : 0, delta)
   })
 
   return (
@@ -93,10 +95,26 @@ function ThumbImage({ url, ...props }) {
       ref={ref}
       onPointerOver={(e) => (e.stopPropagation(), hover(true))}
       onPointerOut={(e) => (e.stopPropagation(), hover(false))}
-      scale={[2, 4, 1]}
       {...props}>
       <planeGeometry args={[16, 9]} />
       <MeshDistortMaterial map={texture} speed={2} toneMapped={false} />
+    </mesh>
+  )
+}
+
+function Flag({ url, ...props }) {
+  const ref = useRef()
+  const [hovered, hover] = useState(false)
+  const texture = useTexture(url)
+  useCursor(hovered)
+  useFrame(() => {
+    ref.current.distort = THREE.MathUtils.lerp(ref.current.distort, hovered ? 0.25 : 0, hovered ? 0.05 : 0.01)
+    // ref.current.material.grayscale = THREE.MathUtils.damp(ref.current.material.grayscale, hovered ? 0 : 1, delta)
+  })
+  return (
+    <mesh onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}  {...props}>
+      <planeGeometry args={[16, 9]} />
+      <MeshDistortMaterial ref={ref} speed={5} map={texture} />
     </mesh>
   )
 }
@@ -260,6 +278,8 @@ export default function Component(props) {
   }, []);
 
 
+
+
   return (
     <>
       <Head>
@@ -313,34 +333,34 @@ export default function Component(props) {
       </section>
       <section className="our-services flex min-h-screen h-screen items-center justify-center bg-click-here-dark">
         <div className="container">
-          <div className="headline border-b-2 border-click-here-teal mb-[35px]">
+          <div data-aos="fade-in" data-aos-duration="1000" className="headline border-b-2 border-click-here-teal mb-[35px]">
             <h2 className="services-headline">Our Services</h2>
           </div>
           <div className="grid grid-cols-12 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
             <div className="col-start-1 col-end-4 flex flex-col">
-              <h3 className="mb-[30px] thin text-click-here-teal">There’s no one-size-fits-all.</h3>
-              <p className="mb-[56px]">We adapt our services to the problem we’re solving. We have our in-house production team to get the results you’re looking for.</p>
-              <a href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300">
+              <h3  data-aos="fade-up" data-aos-duration="1000"className="mb-[30px] thin text-click-here-teal">There’s no one-size-fits-all.</h3>
+              <p  data-aos="fade-up" data-aos-duration="1000"className="mb-[56px]">We adapt our services to the problem we’re solving. We have our in-house production team to get the results you’re looking for.</p>
+              <a  data-aos="fade-up" data-aos-duration="1000"href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300">
                 See All Capabilities &nbsp; →
               </a>
             </div>
             <div className="col-start-6 col-end-13">
               <div className="grid grid-cols-12 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8 sm:ps-[65px]">
                 <ul className="services">
-                  <li>Websites</li>
-                  <li>Online Advertising</li>
-                  <li>Web-Based Applications</li>
-                  <li>Digital Analytics</li>
-                  <li>New & Emerging Tech</li>
-                  <li>Mobile</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="250">Websites</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="250">Online Advertising</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="250">Web-Based Applications</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="250">Digital Analytics</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="250">New & Emerging Tech</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="250">Mobile</li>
                 </ul>
                 <ul className="services">
-                  <li>Search/SEO</li>
-                  <li>Digital Design</li>
-                  <li>Motion Graphics</li>
-                  <li>Branding</li>
-                  <li>Email Marketing</li>
-                  <li>Maintenance & Support</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">Search/SEO</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">Digital Design</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">Motion Graphics</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">Branding</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">Email Marketing</li>
+                  <li data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">Maintenance & Support</li>
                 </ul>
               </div>
             </div>
@@ -377,9 +397,13 @@ export default function Component(props) {
 
             <div className="col-start-5 col-end-13">
               <div className="my-32">
-                <Canvas className="aspect-video" camera={{ position: [0, 0, 40], fov: 100 }}>
+                {/*<Canvas className="aspect-video" camera={{ position: [0, 0, 40], fov: 100 }}>
                   <ambientLight intensity={1} />
                   <ThumbImage url="/assets/DP_maroon.jpg" position={[-2, 0, 0]} />
+                </Canvas>*/}
+                <Canvas className="aspect-video" camera={{ position: [0, 0, 4], fov: 100 }}>
+                  <ambientLight />
+                  <Flag url="/assets/DP_maroon.jpg" position={[0, 0, 0]}/>
                 </Canvas>
                 <div className="h-min overflow-hidden rounded-[1rem] mb-4 relative group">
                   {/*<img className="group-hover:scale-105 transition-all duration-700 cursor-pointer grayscale group-hover:grayscale-0" src="https://cms.clickherelabs.com/wp-content/uploads/2020/01/Choctaw_dark.jpg" alt="" />*/}
