@@ -8,7 +8,7 @@ const Accordion = (props) => {
     }
 
     return (
-        <div className={`p-5 border-t-[1px] last:border-b-[1px] border-[#c9c6c655] py-[25px] duration-500 group ${data.active === 1 ? 'is-active bg-click-here-accordion' : ''}`}>
+        <div className={`p-5 border-t-[1px] last:border-b-[1px] border-[#c9c6c655] shadow-[0_0px_1px_0px_rgba(0,0,0,0.05)] py-[25px] duration-500 group ${data.active === 1 ? 'is-active bg-click-here-accordion' : ''}`}>
             <div className="flex items-center">
               <div className="title-container flex flex-nowrap items-center w-0 w-full">
                 <div className="group-title whitespace-nowrap">{data.title}</div>
