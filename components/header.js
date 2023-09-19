@@ -23,9 +23,17 @@ export default function Header({ siteTitle, siteDescription, menuItems }) {
             </button>
           </div>
           <nav className="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row">
-            <a className="link px-2 py-2 text-sm font-normal text-white lg:px-6 md:px-3 hover:text-white/50 lg:ml-auto" href="#">About Us</a>
-            <a className="link px-2 py-2 text-sm font-normal text-white lg:px-6 md:px-3 hover:text-white/50" href="#">Our Services</a>
-            <a className="link px-2 py-2 text-sm font-normal text-white lg:px-6 md:px-3 hover:text-white/50" href="#">Our Work</a>
+            <ul className="flex-col items-center flex-grow md:flex md:justify-end md:flex-row">
+              {menuItems.map((item) => (
+                <li key={item.id}>
+                  <Link className="link px-2 py-2 text-sm font-normal text-white lg:px-6 md:px-3 hover:text-white/50" href={item.uri}>{item.label}</Link>
+                </li>
+              ))}
+              
+            </ul>
+
+
+
             <div className="flex flex-col">
               <a href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300">
                 Let's Connect &nbsp; →

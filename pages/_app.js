@@ -2,6 +2,7 @@ import "../faust.config";
 import React from "react";
 import { useRouter } from "next/router";
 import { FaustProvider } from "@faustwp/core";
+import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
 import "../styles/globals.css";
 import "../styles/main.scss";
 
@@ -12,10 +13,16 @@ config.autoAddCss = false
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const lenis = useLenis(({ scroll }) => {
+    // called every scroll
+  })
 
   return (
-    <FaustProvider pageProps={pageProps}>
-      <Component {...pageProps} key={router.asPath} />
-    </FaustProvider>
+    <ReactLenis root>
+      <FaustProvider pageProps={pageProps}>
+        <Component {...pageProps} key={router.asPath} />
+      </FaustProvider>
+    </ReactLenis>
+
   );
 }

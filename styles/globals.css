@@ -13,6 +13,10 @@ body {
 
 }
 
+main.container {
+  padding-top: 186px;
+}
+
 @layer base{
     body {
         /* @apply dark:bg-gray-900 bg-white; */

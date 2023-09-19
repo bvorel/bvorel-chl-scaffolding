@@ -10,23 +10,23 @@ export default function Page(props) {
     // called every scroll
   })
 
-  useEffect( () => {
+  {/*useEffect( () => {
     (
       async () => {
           const LocomotiveScroll = (await import('locomotive-scroll')).default
           const locomotiveScroll = new LocomotiveScroll();
       }
     )()
-  }, [])
+  }, [])*/}
 
   return (
     <>
-      <ThemeProvider attribute="class">
+      {/*<ThemeProvider attribute="class">
         <WordPressTemplate {...props} />
-      </ThemeProvider>
-      {/*<ReactLenis root>
+      </ThemeProvider>*/}
+      <ReactLenis root>
         <WordPressTemplate {...props} />;
-      </ReactLenis>*/}
+      </ReactLenis>
     </>
   )
 }
