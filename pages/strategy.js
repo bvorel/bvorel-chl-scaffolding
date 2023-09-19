@@ -61,15 +61,15 @@ export default function Page() {
       />
 
       <main>
-        <section className="hero w-screen min-h-3/6 h-3/6 flex items-center justify-center bg-[url('https://source.unsplash.com/rNQ-xlJj_EM')] bg-cover bg-center">
+        <section className="hero w-screen h-[400px] flex items-center justify-center bg-[url('https://source.unsplash.com/rNQ-xlJj_EM')] bg-cover bg-center">
           <div className="absolute container">
             <h1 data-aos="fade-up" data-aos-duration="1000" className="text-white text-center w-8/12 mx-auto pt-20">Strategy</h1>
           </div>
         </section>
         <section className="container">
-          <div className='h-screen'>
-            <div className='accordion py-20'>
-            {
+          <div className='relative block'>
+            <div className='accordion my-20'>
+              {
                 list.map((item, key) => (
                   <Accordion key={key} datas={item} />
                 ))
@@ -78,9 +78,10 @@ export default function Page() {
 
           </div>
         </section>
+        <Footer />
       </main>
 
-      <Footer />
+
     </>
   );
 }
