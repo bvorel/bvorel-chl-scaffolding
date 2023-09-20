@@ -3,6 +3,7 @@ import { faInstagram, faXTwitter, faLinkedinIn } from '@fortawesome/free-brands-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image';
 import Link from "next/link";
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 
 export default function Footer() {
   return (
@@ -49,8 +50,8 @@ export default function Footer() {
       <div className="container pt-[30px] mb-[30px] pb-[115px]">
         <div className="flex items-center grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
           <div className="flex flex-col">
-            <a href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300">
-              Let's Connect &nbsp; →
+            <a href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300 flex flex-row flex-nowrap content-center justify-center">
+              Let's Connect &nbsp; <ArrowRightIcon className="h-6 w-6 text-click-here-dark" />
             </a>
           </div>
           <div className="sm:ps-[65px]">

@@ -7,6 +7,7 @@ import Header from "../components/header";
 import EntryHeader from "../components/entry-header";
 import Footer from "../components/footer";
 import style from "../styles/front-page.module.css";
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -213,8 +214,8 @@ export default function Component(props) {
             <div className="flex flex-col">
               <h3 data-aos="fade-up" data-aos-duration="1000" className="mb-[47px]">An Innovative Digital Design & Marketing Agency.</h3>
               <p data-aos="fade-up" data-aos-duration="1000" className="mb-[56px]">We are a creative team of designers and developers, crafting transformative solutions in the heart of Dallas. We believe a successful brand is the combination of different elements. As a production lab, we use a multi-disciplined approach to achieve enduring results.</p>
-              <a data-aos="fade-up" data-aos-duration="1000" href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300">
-                More About Us &nbsp; →
+              <a href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300 flex flex-row flex-nowrap content-center justify-center">
+                More About Us &nbsp; <ArrowRightIcon className="h-6 w-6 text-click-here-dark" />
               </a>
             </div>
           </div>
@@ -229,8 +230,8 @@ export default function Component(props) {
             <div className="col-start-1 col-end-4 flex flex-col">
               <h3  data-aos="fade-up" data-aos-duration="1000"className="mb-[30px] thin text-click-here-teal">There’s no one-size-fits-all.</h3>
               <p  data-aos="fade-up" data-aos-duration="1000"className="mb-[56px]">We adapt our services to the problem we’re solving. We have our in-house production team to get the results you’re looking for.</p>
-              <a  data-aos="fade-up" data-aos-duration="1000"href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300">
-                See All Capabilities &nbsp; →
+              <a href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300 flex flex-row flex-nowrap content-center justify-center">
+                See All Capabilities &nbsp; <ArrowRightIcon className="h-6 w-6 text-click-here-dark" />
               </a>
             </div>
             <div className="col-start-6 col-end-13">
@@ -260,13 +261,13 @@ export default function Component(props) {
       <section className="work-section bg-click-here-dark">
         <div className="px-10 py-32 flex items-center justify-center">
           <div className="grid grid-cols-12 gap-4">
-            
+
             <div className="col-start-1 col-end-9">
               <div className="my-32">
                 <div className="h-min overflow-hidden rounded-[1rem] mb-4 relative group">
                   <img className="group-hover:scale-105 transition-all duration-700 cursor-pointer grayscale group-hover:grayscale-0" src="https://cms.clickherelabs.com/wp-content/uploads/2020/05/DP_maroon.jpg" alt="" />
-                  <a href="#" className="absolute bottom-0 left-0 m-4 opacity-0 group-hover:opacity-100 ch-btn block hover:bg-click-here-teal ease-in-out duration-700">
-                    See Case Study &nbsp; →
+                  <a href="#" className="absolute bottom-0 left-0 m-4 opacity-0 group-hover:opacity-100 ch-btn hover:bg-click-here-teal ease-in-out duration-700 flex flex-row flex-nowrap content-center justify-center">
+                    See Case Study &nbsp; <ArrowRightIcon className="h-6 w-6 text-click-here-dark" />
                   </a>
                 </div>
                 <span className="text-lg text-gray-700">Website</span>
@@ -278,8 +279,8 @@ export default function Component(props) {
               <div className="my-32">
                 <div className="h-min overflow-hidden rounded-[1rem] mb-4 relative group">
                   <img className="group-hover:scale-105 transition-all duration-700 cursor-pointer grayscale group-hover:grayscale-0" src="https://cms.clickherelabs.com/wp-content/uploads/2020/01/Choctaw_dark.jpg" alt="" />
-                  <a href="#" className="absolute bottom-0 left-0 m-4 opacity-0 group-hover:opacity-100 ch-btn block hover:bg-click-here-teal ease-in-out duration-700">
-                    See Case Study &nbsp; →
+                  <a href="#" className="absolute bottom-0 left-0 m-4 opacity-0 group-hover:opacity-100 ch-btn block hover:bg-click-here-teal ease-in-out duration-300 flex flex-row flex-nowrap content-center justify-center">
+                    See Case Study &nbsp; <ArrowRightIcon className="h-6 w-6 text-click-here-dark" />
                   </a>
                 </div>
                 <span className="text-lg text-gray-700">Website</span>
@@ -290,8 +291,8 @@ export default function Component(props) {
               <div className="my-32">
                 <div className="h-min overflow-hidden rounded-[1rem] mb-4 relative group">
                   <img className="group-hover:scale-105 transition-all duration-700 cursor-pointer grayscale group-hover:grayscale-0" src="https://cms.clickherelabs.com/wp-content/uploads/2020/01/7upHeroImage_dark.jpg" alt="" />
-                  <a href="#" className="absolute bottom-0 left-0 m-4 opacity-0 group-hover:opacity-100 ch-btn block hover:bg-click-here-teal ease-in-out duration-700">
-                    See Case Study &nbsp; →
+                  <a href="#" className="absolute bottom-0 left-0 m-4 opacity-0 group-hover:opacity-100 ch-btn block hover:bg-click-here-teal ease-in-out duration-300 flex flex-row flex-nowrap content-center justify-center">
+                    See Case Study &nbsp; <ArrowRightIcon className="h-6 w-6 text-click-here-dark" />
                   </a>
                 </div>
                 <span className="text-lg text-gray-700">Website</span>
@@ -302,8 +303,8 @@ export default function Component(props) {
               <div className="my-32">
                 <div className="h-min overflow-hidden rounded-[1rem] mb-4 relative group">
                   <img className="group-hover:scale-105 transition-all duration-700 cursor-pointer grayscale group-hover:grayscale-0" src="https://cms.clickherelabs.com/wp-content/uploads/2020/01/Raytheon.jpg" alt="" />
-                  <a href="#" className="absolute bottom-0 left-0 m-4 opacity-0 group-hover:opacity-100 ch-btn block hover:bg-click-here-teal ease-in-out duration-700">
-                    See Case Study &nbsp; →
+                  <a href="#" className="absolute bottom-0 left-0 m-4 opacity-0 group-hover:opacity-100 ch-btn block hover:bg-click-here-teal ease-in-out duration-300 flex flex-row flex-nowrap content-center justify-center">
+                    See Case Study &nbsp; <ArrowRightIcon className="h-6 w-6 text-click-here-dark" />
                   </a>
                 </div>
                 <span className="text-lg text-gray-700">Website</span>
@@ -319,8 +320,8 @@ export default function Component(props) {
             <h3>Wait, there’s more!</h3>
             <div className="flex grow items-center justify-center">
               <hr className="ms-10"/>
-              <a href="#" className="ms-10 ch-btn block hover:bg-click-here-teal ease-in-out duration-300 flex flex-nowrap w-[270px]">
-                See More Projects&nbsp;→
+              <a href="#" className="ms-10 ch-btn block hover:bg-click-here-teal ease-in-out duration-300 flex flex-row flex-nowrap content-center justify-center w-[300px]">
+                See More Projects &nbsp; <ArrowRightIcon className="h-6 w-6 text-click-here-dark" />
               </a>
             </div>
           </div>

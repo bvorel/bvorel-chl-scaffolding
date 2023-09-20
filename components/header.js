@@ -2,6 +2,7 @@ import { gql } from "@apollo/client";
 import Image from 'next/image';
 import Link from "next/link";
 import style from "./header.module.css";
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 
 export default function Header({ siteTitle, siteDescription, menuItems }) {
   return (
@@ -29,15 +30,15 @@ export default function Header({ siteTitle, siteDescription, menuItems }) {
                   <Link className="link px-2 py-2 text-sm font-normal text-white lg:px-6 md:px-3 hover:text-white/50" href={item.uri}>{item.label}</Link>
                 </li>
               ))}
-              
+
             </ul>
 
 
 
             <div className="flex flex-col">
-              <a href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300">
-                Let's Connect &nbsp; →
-              </a>
+            <a href="#" className="ch-btn block hover:bg-click-here-teal ease-in-out duration-300 flex flex-row flex-nowrap content-center justify-center">
+              Let's Connect &nbsp; <ArrowRightIcon className="h-6 w-6 text-click-here-dark" />
+            </a>
             </div>
 
           </nav>
